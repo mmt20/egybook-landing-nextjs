@@ -3,13 +3,13 @@
 import { Box, Container, Heading, Text, Flex, Button, HStack, Icon } from "@chakra-ui/react";
 import { FaMapMarkerAlt, FaCalendarAlt, FaUsers } from "react-icons/fa";
 import Image from "next/image";
-import heroImg from "../../public/HeroBG.png";
+import heroImg from "../../../public/HeroBG.png";
 
 export default function Hero() {
   return (
     <Box
       position="relative"
-      h={{ base: "90vh", sm: "95vh", md: "600px" }}
+      h={{ base: "fit", sm: "95vh", md: "600px" }}
       w="full"
       overflow="hidden"
       mt={{ base: "-20px", md: 0 }} // Reduce space at top on mobile

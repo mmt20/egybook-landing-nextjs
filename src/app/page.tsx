@@ -1,10 +1,15 @@
-import Hero from "@/components/Hero";
-import { Box } from "@chakra-ui/react";
+import Hero from "@/components/hero/Hero";
+import HotelSlider from "@/components/hotel/HotelSlider";
+import { Box, Container } from "@chakra-ui/react";
 
 export default function Home() {
   return (
-    <Box as="main" width="100%" overflow="hidden">
+    <Box as="main" w="full" overflow="hidden">
       <Hero />
+
+      <Container maxW="1280px" px={{ base: 4, md: 6, lg: 8 }} py={{ base: 6, md: 10 }}>
+        <HotelSlider />
+      </Container>
     </Box>
   );
 }

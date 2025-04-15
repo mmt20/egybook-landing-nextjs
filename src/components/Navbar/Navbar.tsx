@@ -20,8 +20,8 @@ export const Navbar = () => {
       <Flex align="center" py={{ base: 2, md: 3 }} justifyContent="space-between">
         {/* Left Section - Logo */}
         <Flex align="center">
-          <HStack p={{ base: 2, md: 1 }}>
-            <Flex align="center" direction="column" ml={{ base: 0, md: 4, lg: 20 }}>
+          <HStack>
+            <Flex align="center" direction="column" ml={{ base: 0, md: -4, lg: 20 }}>
               <Image src="/LOGO.png" alt="GOE Logo" height={{ base: "20px", md: "32px" }} />
               <Text fontSize={{ base: "16px", md: "22px" }} whiteSpace="nowrap">
                 <Text as="span" color="brand.400">
