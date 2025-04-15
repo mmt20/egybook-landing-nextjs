@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Provider } from "@/components/ui/provider";
 import { Montserrat } from "next/font/google";
+import { Navbar } from "@/components/Navbar/Navbar";
 
 const font = Montserrat({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -20,7 +21,10 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${font.className}  antialiased`} suppressHydrationWarning>
-        <Provider>{children}</Provider>
+        <Provider>
+          <Navbar />
+          {children}
+        </Provider>
       </body>
     </html>
   );
