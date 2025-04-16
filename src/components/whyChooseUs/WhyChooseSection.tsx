@@ -12,7 +12,9 @@ export default function WhyChooseUs() {
           <Text ml={2} as="span" color="#D2AC71">
             Egy
           </Text>
-          Book?
+          <Text as="span" fontWeight={"medium"} color="white">
+            Book?
+          </Text>
         </Heading>
 
         <Grid templateColumns={{ base: "1fr", md: "repeat(3, 1fr)" }} gap={{ base: 8, md: 6 }}>

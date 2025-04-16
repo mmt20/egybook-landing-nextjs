@@ -67,7 +67,7 @@ export const placeData = [
 export const featuresData = [
   {
     icon: MouseCursuerICon,
-    titlePart1: "Seamless",
+    titlePart1: "Seamless &",
     titlePart2: "Smart",
     titlePart3: "Booking",
     description: "Quick, user-friendly platform that simplifies the reservation process",
@@ -94,18 +94,18 @@ export const destinationData = [
     name: "Cairo",
     description: "Unveil secrets of ancient wonders.",
 
-    gradient: "linear-gradient(to top left,rgba(252, 143, 80, 0), #fc8e50)",
+    gradient: "linear-gradient(to top left,rgba(252, 143, 80, 0.42),#ff7b2f)",
   },
   {
     image: "/images/hurghada.png",
     name: "Hurghada",
     description: "Sunshine, beaches, and vibrant reefs.",
-    gradient: "linear-gradient(to top left,rgba(77, 118, 161, 0.51), #4d75a1)",
+    gradient: "linear-gradient(to top left,rgba(77, 118, 161, 0.69),#3c79bb)",
   },
   {
     image: "/images/sharm.png",
     name: "Sharm",
     description: "Dive into breathtaking underwater landscapes.",
-    gradient: "linear-gradient(to top left, #873d3d, #9c6f6f)",
+    gradient: "linear-gradient(to top left,rgba(135, 61, 61, 0.83), #873d3d)",
   },
 ];

@@ -72,6 +72,7 @@ export const Navbar = () => {
               color="white"
               whiteSpace="nowrap"
               fontSize={{ md: "15px", lg: "18px" }}
+              transition="all 0.2s"
               _hover={{ color: "brand.400", textDecoration: "none" }}
               _focus={{ boxShadow: "none" }}
               _focusVisible={{ boxShadow: "none" }}
@@ -96,7 +97,11 @@ export const Navbar = () => {
             </HStack>
             <Button
               bg="brand.400"
-              _hover={{ bg: "brand.600" }}
+              transition="all 0.2s"
+              _hover={{
+                bg: "brand.600",
+                transform: "scale(1.05)",
+              }}
               color="white"
               rounded="xl"
               size={{ md: "sm", lg: "md" }}
@@ -106,7 +111,11 @@ export const Navbar = () => {
             </Button>
             <Button
               bg="brand.400"
-              _hover={{ bg: "brand.600" }}
+              transition="all 0.2s"
+              _hover={{
+                bg: "brand.600",
+                transform: "scale(1.05)",
+              }}
               color="white"
               rounded="xl"
               size={{ md: "sm", lg: "md" }}
