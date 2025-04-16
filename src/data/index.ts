@@ -1,8 +1,9 @@
 import MouseCursuerICon from "@/components/ui/icons/MouseCursuerICon";
 import PiggyBankIcon from "@/components/ui/icons/PiggyBankIcon";
 import VRICon from "@/components/ui/icons/VRICon";
+import { IDestination, IFeature, IHotel, IPlace } from "@/interfaces";
 
-export const hotelData = [
+export const hotelData: IHotel[] = [
   {
     image: "/images/kempinski.png",
     location: "Soma Bay",
@@ -37,7 +38,7 @@ export const hotelData = [
   },
 ];
 
-export const placeData = [
+export const placeData: IPlace[] = [
   {
     image: "/images/redSea.png",
     name: "Red Sea",
@@ -64,7 +65,7 @@ export const placeData = [
   },
 ];
 
-export const featuresData = [
+export const featuresData: IFeature[] = [
   {
     icon: MouseCursuerICon,
     titleParts: [
@@ -92,7 +93,7 @@ export const featuresData = [
   },
 ];
 
-export const destinationData = [
+export const destinationData: IDestination[] = [
   {
     image: "/images/cairo.png",
     name: "Cairo",
