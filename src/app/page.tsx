@@ -1,3 +1,4 @@
+import CallToAction from "@/components/cta/CallToAction";
 import DestinationCarousel from "@/components/destination/DestinationCarousel";
 import Hero from "@/components/hero/Hero";
 import HotelSlider from "@/components/hotel/HotelSlider";
@@ -15,6 +16,7 @@ export default function Home() {
         <PlaceSlider />
         <WhyChooseUs />
         <DestinationCarousel />
+        <CallToAction />
       </Container>
     </Box>
   );
