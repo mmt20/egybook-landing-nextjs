@@ -67,23 +67,27 @@ export const placeData = [
 export const featuresData = [
   {
     icon: MouseCursuerICon,
-    titlePart1: "Seamless &",
-    titlePart2: "Smart",
-    titlePart3: "Booking",
-    description: "Quick, user-friendly platform that simplifies the reservation process",
+    titleParts: [
+      { text: "Seamless", color: "#D2AC71", fontWeight: "semibold" },
+      { text: "& Smart", color: "#30A46C", fontWeight: "semibold" },
+      { text: "Booking", color: "white", fontWeight: "bold" },
+    ],
+    description: "Quick, user-friendly platform that simplifies the reservation process.",
   },
   {
     icon: VRICon,
-    titlePart1: "Immersive",
-    titlePart2: "VR",
-    titlePart3: "Previews",
+    titleParts: [
+      { text: "Immersive", color: "#30A46C", fontWeight: "semibold", italic: true },
+      { text: "VR Previews", color: "white", fontWeight: "bold" },
+    ],
     description: "Explore hotels and rooms in 360° before you book—giving you total confidence.",
   },
   {
     icon: PiggyBankIcon,
-    titlePart1: "Exclusive",
-    titlePart2: "Best-Price",
-    titlePart3: "Deals",
+    titleParts: [
+      { text: "Exclusive", color: "#30A46C", fontWeight: "semibold" },
+      { text: "Best-Price Deals", color: "white", fontWeight: "bold" },
+    ],
     description: "Save more with special offers and real-time price comparisons.",
   },
 ];
