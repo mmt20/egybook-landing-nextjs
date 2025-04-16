@@ -1,4 +1,3 @@
-// PlaceCard.jsx
 import { Box, Text } from "@chakra-ui/react";
 import Image from "next/image";
 
@@ -20,6 +19,7 @@ export default function PlaceCard({ image, name }: PlaceCardProps) {
           borderRadius: "24px",
         }}
       />
+      <Box position="absolute" inset={0} bg="blackAlpha.400" />
 
       <Box
         position="absolute"

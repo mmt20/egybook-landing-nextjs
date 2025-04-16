@@ -55,7 +55,7 @@ export default function PlaceSlider() {
             left="-4"
             top="50%"
             transform="translateY(-50%)"
-            zIndex="1"
+            zIndex="2"
             _hover={{ bg: "gray.200" }}
             color="var(--chakra-colors-brand-500)"
           >
@@ -97,7 +97,7 @@ export default function PlaceSlider() {
             right="-4"
             top="50%"
             transform="translateY(-50%)"
-            zIndex="1"
+            zIndex="2"
             _hover={{ bg: "gray.200" }}
             color="var(--chakra-colors-brand-500)"
           >
