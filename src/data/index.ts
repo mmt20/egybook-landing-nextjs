@@ -32,3 +32,36 @@ export const hotelData = [
     reviews: 2274,
   },
 ];
+
+export const placeData = [
+  {
+    id: 1,
+    image: "/images/redSea.png",
+    name: "Red Sea",
+  },
+  {
+    id: 2,
+    image: "/images/somaBay.png",
+    name: "Soma Bay",
+  },
+  {
+    id: 3,
+    image: "/images/giza.png",
+    name: "Giza",
+  },
+  {
+    id: 4,
+    image: "/images/nile.png",
+    name: "Nile",
+  },
+  {
+    id: 5,
+    image: "/images/nabqBay.png",
+    name: "Nabq Bay",
+  },
+  {
+    id: 6,
+    image: "/images/redSea.png",
+    name: "Red Sea",
+  },
+];

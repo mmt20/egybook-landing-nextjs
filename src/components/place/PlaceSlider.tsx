@@ -1,17 +1,14 @@
 "use client";
-
-import { Box, Heading, Flex, IconButton, useBreakpointValue } from "@chakra-ui/react";
+import { Box, Heading, Flex, IconButton } from "@chakra-ui/react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import PlaceCard from "./PlaceCard";
+import { placeData } from "@/data";
 import { useRef, useState, useEffect } from "react";
-import HotelCard from "./HotelCard";
-import { hotelData } from "@/data";
 
-export default function HotelSlider() {
+export default function PlaceSlider() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [showLeftArrow, setShowLeftArrow] = useState(false);
   const [showRightArrow, setShowRightArrow] = useState(true);
-
-  const cardWidth = useBreakpointValue({ base: 240, md: 400, lg: 450 });
 
   const checkScrollPosition = () => {
     if (scrollRef.current) {
@@ -25,15 +22,15 @@ export default function HotelSlider() {
     const scrollElement = scrollRef.current;
     if (scrollElement) {
       scrollElement.addEventListener("scroll", checkScrollPosition);
+
       checkScrollPosition();
       return () => scrollElement.removeEventListener("scroll", checkScrollPosition);
     }
   }, []);
 
   const scroll = (direction: "left" | "right") => {
-    if (scrollRef.current && cardWidth) {
-      const gap = 20;
-      const scrollAmount = direction === "left" ? -(cardWidth + gap) : cardWidth + gap;
+    if (scrollRef.current) {
+      const scrollAmount = direction === "left" ? -220 : 220; // Card width + gap
       scrollRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
     }
   };
@@ -41,7 +38,7 @@ export default function HotelSlider() {
   return (
     <Box bg="black" py="8" px={{ base: 4, md: 6 }}>
       <Heading color="white" mb="5" fontSize="3xl" fontWeight="bold" pl={{ base: 0, md: 2 }}>
-        The Most Relevant
+        Discover New Places
       </Heading>
 
       <Flex position="relative">
@@ -62,15 +59,15 @@ export default function HotelSlider() {
             _hover={{ bg: "gray.200" }}
             color="var(--chakra-colors-brand-500)"
           >
-            <FaChevronLeft size={24} />
+            <FaChevronLeft />
           </IconButton>
         )}
 
-        {/* Scrollable Hotel Cards */}
+        {/* Scrollable Place Cards */}
         <Flex
           ref={scrollRef}
           overflowX="auto"
-          gap="5"
+          gap="4"
           px="4"
           py="2"
           scrollSnapType="x mandatory"
@@ -80,9 +77,9 @@ export default function HotelSlider() {
             msOverflowStyle: "none",
           }}
         >
-          {hotelData.map((hotel, index) => (
+          {placeData.map((place, index) => (
             <Box key={index} scrollSnapAlign="start" flexShrink={0}>
-              <HotelCard {...hotel} />
+              <PlaceCard {...place} />
             </Box>
           ))}
         </Flex>
