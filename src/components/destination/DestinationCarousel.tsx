@@ -1,11 +1,11 @@
 "use client";
 import { Box, Heading, Flex, IconButton } from "@chakra-ui/react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import PlaceCard from "./PlaceCard";
-import { placeData } from "@/data";
+import DestinationCard from "./DestinationCard";
+import { destinationData } from "@/data";
 import { useRef, useState, useEffect } from "react";
 
-export default function PlaceSlider() {
+export default function DestinationCarousel() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [showLeftArrow, setShowLeftArrow] = useState(false);
   const [showRightArrow, setShowRightArrow] = useState(true);
@@ -30,7 +30,7 @@ export default function PlaceSlider() {
 
   const scroll = (direction: "left" | "right") => {
     if (scrollRef.current) {
-      const scrollAmount = direction === "left" ? -220 : 220; // Card width + gap
+      const scrollAmount = direction === "left" ? -220 : 220;
       scrollRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
     }
   };
@@ -38,7 +38,7 @@ export default function PlaceSlider() {
   return (
     <Box py="8" px={{ base: 4, md: 6 }}>
       <Heading color="white" mb="5" fontSize={{ base: "2xl", md: "4xl" }} fontWeight="bold" pl={{ base: 0, md: 2 }}>
-        Discover New Places
+        Trending Destinations
       </Heading>
 
       <Flex position="relative">
@@ -63,11 +63,11 @@ export default function PlaceSlider() {
           </IconButton>
         )}
 
-        {/* Scrollable Place Cards */}
+        {/* Cards */}
         <Flex
           ref={scrollRef}
           overflowX="auto"
-          gap="4"
+          gap={{ base: "4", md: "8" }}
           px="4"
           py="2"
           scrollSnapType="x mandatory"
@@ -77,9 +77,9 @@ export default function PlaceSlider() {
             msOverflowStyle: "none",
           }}
         >
-          {placeData.map((place, index) => (
+          {destinationData.map((destination, index) => (
             <Box key={index} scrollSnapAlign="start" flexShrink={0}>
-              <PlaceCard {...place} />
+              <DestinationCard {...destination} />
             </Box>
           ))}
         </Flex>

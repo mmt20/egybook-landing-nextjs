@@ -8,7 +8,7 @@ interface PlaceCardProps {
 
 export default function PlaceCard({ image, name }: PlaceCardProps) {
   return (
-    <Box width="200px" minW="200px" height="280px" position="relative" borderRadius="3xl" overflow="hidden" shadow="lg">
+    <Box width="200px" minW="200px" height="280px" position="relative" borderRadius="3xl" overflow="hidden">
       <Image
         src={image}
         alt={name}

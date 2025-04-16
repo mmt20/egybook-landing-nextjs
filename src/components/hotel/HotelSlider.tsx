@@ -39,8 +39,8 @@ export default function HotelSlider() {
   };
 
   return (
-    <Box bg="black" py="8" px={{ base: 4, md: 6 }}>
-      <Heading color="white" mb="5" fontSize="3xl" fontWeight="bold" pl={{ base: 0, md: 2 }}>
+    <Box py="8" px={{ base: 4, md: 6 }}>
+      <Heading color="white" mb="5" fontSize={{ base: "2xl", md: "4xl" }} fontWeight="bold" pl={{ base: 0, md: 2 }}>
         The Most Relevant
       </Heading>
 
