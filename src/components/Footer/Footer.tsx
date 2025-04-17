@@ -26,7 +26,7 @@ const Footer = () => {
   ];
 
   return (
-    <Box as="footer" color="white" py={4}>
+    <Box as="footer" color="white" bgGradient={"linear-gradient(to bottom ,#121212 ,#D28E7133 80%)"} py={4}>
       <Container>
         <Flex
           direction={{ base: "column", md: "row" }}
