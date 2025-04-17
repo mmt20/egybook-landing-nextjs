@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# EgyBook Landing Page – Internship Assessment
 
-## Getting Started
+This project is a technical assessment for the **Frontend Internship** at **Gates of Egypt**. It implements a responsive landing page using modern frontend technologies and closely follows the design provided in the Figma file.
 
-First, run the development server:
+### Status: ✅ Complete
+
+### Date: April 17, 2025
+
+## 🔗 Live Demo
+
+[Live Preview](https://egybook-landing-nextjs.vercel.app/)
+
+## 🔧 Tech Stack
+
+- **Next.js 15** – React framework for server-side rendering and routing
+- **Chakra UI v3** – Component library for accessible and composable UI
+- **Tailwind CSS v4** – Utility-first CSS framework for rapid styling
+
+## ✨ Features
+
+- Fully responsive layout (mobile, tablet, desktop)
+- Pixel-perfect design implementation based on Figma
+- Custom Hero section with:
+  - Editable **Location input**
+  - Functional **Date Range Picker**
+  - Interactive **Guests Selector**
+  - Unified UI and UX using Chakra UI Popovers
+- Clean and modular component structure
+
+## 🎯 Features
+
+- Fully responsive layout across all screen sizes
+- Pixel-perfect match to Figma design
+- Functional and accessible **Hero Search Bar**:
+  - Editable **Location input**
+  - Interactive **Date picker**
+  - Dynamic **Guests selector**
+- Modular components, clean architecture
+- Theming with Chakra and utility enhancements using Tailwind
+
+## 📦 Getting Started
+
+### Installation
+
+```bash
+git clone https://github.com/mmt20/egybook-landing-nextjs
+cd egybook-landing
+npm install
+```
+
+### Development Server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit `http://localhost:3000` to view the live project locally.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 📐 Design Reference
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This UI strictly follows the design provided in the technical assessment Figma file.
 
-## Learn More
+🔗 [Figma File ](https://www.figma.com/design/sA3TMpfD4FwwyOlpwzGB0k/GOE-FE-EXAM?node-id=1-1068&t=gLkHStox9UqdCyEa-0)
 
-To learn more about Next.js, take a look at the following resources:
+### 📤 Submission
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is submitted as part of the Frontend Internship Assessment at Gates of Egypt.
