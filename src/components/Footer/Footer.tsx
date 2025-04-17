@@ -50,7 +50,7 @@ const Footer = () => {
               px={8}
               py={5}
               mb={4}
-              fontSize="sm"
+              fontSize="xl"
               fontWeight={600}
               bg={"brand.500"}
               color="white"
