@@ -31,3 +31,8 @@ export interface IDestination {
   description: string;
   gradient: string;
 }
+
+export interface ILocation {
+  name: string;
+  description: string;
+}

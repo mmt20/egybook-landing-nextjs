@@ -6,28 +6,17 @@ import {
   PopoverRoot,
   PopoverTrigger,
   PopoverBody,
-  PopoverArrow,
   PopoverCloseTrigger,
   PopoverPositioner,
 } from "@chakra-ui/react";
 import { FiSearch, FiMapPin } from "react-icons/fi";
 import { useState } from "react";
-
-// Type for locations
-interface Location {
-  name: string;
-  description: string;
-}
-
-const popularLocations: Location[] = [
-  { name: "Cairo", description: "City in Egypt" },
-  { name: "Alexandria", description: "City in Egypt" },
-  { name: "Hurghada", description: "City in Egypt" },
-];
+import { popularLocations } from "@/data";
+import { ILocation } from "@/interfaces";
 
 export const SearchPopover = () => {
   const [searchTerm, setSearchTerm] = useState<string>("");
-  const [searchResults, setSearchResults] = useState<Location[]>([]);
+  const [searchResults, setSearchResults] = useState<ILocation[]>([]);
 
   // Filter locations based on the search term
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -41,8 +30,7 @@ export const SearchPopover = () => {
     }
   };
 
-  // Render location item
-  const renderLocationItem = (location: Location) => (
+  const renderLocationItem = (location: ILocation) => (
     <HStack key={location.name} p={2} rounded="md" _hover={{ bg: "#2D2D2D", cursor: "pointer" }}>
       <Flex bg="whiteAlpha.200" rounded="full" p={2} justify="center" align="center" width="40px" height="40px">
         <FiMapPin color="white" />
@@ -75,8 +63,7 @@ export const SearchPopover = () => {
 
       <Portal>
         <PopoverPositioner>
-          <PopoverContent bg="#1E1E1E" color="white" border="none" shadow="xl" width="350px">
-            <PopoverArrow bg="#1E1E1E" />
+          <PopoverContent bg="#1E1E1E" color="white" border="none" shadow="xl" width={{ base: "auto", md: "320px" }}>
             <PopoverCloseTrigger />
             <PopoverBody p={4}>
               <Input

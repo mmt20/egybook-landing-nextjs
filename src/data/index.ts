@@ -1,7 +1,7 @@
 import MouseCursuerICon from "@/components/ui/icons/MouseCursuerICon";
 import PiggyBankIcon from "@/components/ui/icons/PiggyBankIcon";
 import VRICon from "@/components/ui/icons/VRICon";
-import { IDestination, IFeature, IHotel, IPlace } from "@/interfaces";
+import { IDestination, IFeature, IHotel, IPlace, ILocation } from "@/interfaces";
 
 export const hotelData: IHotel[] = [
   {
@@ -113,4 +113,10 @@ export const destinationData: IDestination[] = [
     description: "Dive into breathtaking underwater landscapes.",
     gradient: "linear-gradient(to top left,rgba(135, 61, 61, 0.83), #873d3d)",
   },
+];
+
+export const popularLocations: ILocation[] = [
+  { name: "Cairo", description: "City in Egypt" },
+  { name: "Alexandria", description: "City in Egypt" },
+  { name: "Hurghada", description: "City in Egypt" },
 ];
