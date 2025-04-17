@@ -27,16 +27,40 @@ This project is a technical assessment for the **Frontend Internship** at **Gate
   - Unified UI and UX using Chakra UI Popovers
 - Clean and modular component structure
 
-## 🎯 Features
+## 📁 Folder Structure
 
-- Fully responsive layout across all screen sizes
-- Pixel-perfect match to Figma design
-- Functional and accessible **Hero Search Bar**:
-  - Editable **Location input**
-  - Interactive **Date picker**
-  - Dynamic **Guests selector**
-- Modular components, clean architecture
-- Theming with Chakra and utility enhancements using Tailwind
+```sh
+EGY-BOOK/
+├── public/
+├── src/
+    ├── app/
+    ├── components/
+    │   ├── cta/
+    │   ├── destination/
+    │   ├── Footer/
+    │   ├── hero/
+    │   ├── hotel/
+    │   ├── Navbar/
+    │   ├── place/
+    │   ├── ui/
+    │   │   ├── icons/
+    │   │   ├── color-mode.tsx
+    │   │   ├── DatePicker.tsx
+    │   │   ├── GuestsPicker.tsx
+    │   │   ├── LocationPicker.tsx
+    │   │   ├── provider.tsx
+    │   │   └── SearchPopver.tsx
+    │   └── whyChooseUs/
+    ├── data/
+    │   └── index.ts
+    ├── interfaces/
+    │   └── index.ts
+    ├── theme/
+    │   └── theme.ts
+    └── utils/
+        └── functions.ts
+└── .gitignore
+```
 
 ## 📦 Getting Started
 
