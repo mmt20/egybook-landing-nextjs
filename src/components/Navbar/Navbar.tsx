@@ -1,9 +1,10 @@
 "use client";
 
 import { Box, Flex, IconButton, Button, HStack, Link, useDisclosure, Text, Image } from "@chakra-ui/react";
-import { FiMenu, FiGlobe, FiSearch } from "react-icons/fi";
+import { FiMenu, FiGlobe } from "react-icons/fi";
 import NextLink from "next/link";
 import { NavDrawer } from "./NavDrawer";
+import { SearchPopover } from "../ui/SearchPopover";
 
 const navItems = [
   { label: "EgyBook", href: "/#" },
@@ -13,7 +14,7 @@ const navItems = [
 ];
 
 export const Navbar = () => {
-  const { open, onOpen, onClose } = useDisclosure();
+  const { open: isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <Box bg="background" color="white" px={{ base: 4, sm: 6, md: 8 }} shadow="md" zIndex={10}>
@@ -42,18 +43,10 @@ export const Navbar = () => {
           wrap="wrap"
           gap={{ base: 2, md: 3, lg: 6 }}
         >
-          <IconButton
-            aria-label="Search"
-            variant="solid"
-            color="brand.400"
-            rounded="full"
-            bg="whiteAlpha.100"
-            _hover={{ bg: "whiteAlpha.400" }}
-            size={{ md: "sm", lg: "md" }}
-            mr={{ base: 0, md: "60", lg: 20 }}
-          >
-            <FiSearch />
-          </IconButton>
+          <Box>
+            <SearchPopover />
+          </Box>
+
           <Link
             color="brand.400"
             fontWeight="bold"
@@ -137,7 +130,7 @@ export const Navbar = () => {
       </Flex>
 
       {/* Mobile Drawer */}
-      <NavDrawer isOpen={open} onClose={onClose} />
+      <NavDrawer isOpen={isOpen} onClose={onClose} />
     </Box>
   );
 };
