@@ -36,3 +36,23 @@ export interface ILocation {
   name: string;
   description: string;
 }
+
+export interface IMonthsNames {
+  [key: number]:
+    | "January"
+    | "February"
+    | "March"
+    | "April"
+    | "May"
+    | "June"
+    | "July"
+    | "August"
+    | "September"
+    | "October"
+    | "November"
+    | "December";
+}
+
+export interface IDayNames extends Array<string> {
+  [key: number]: "Su" | "Mo" | "Tu" | "We" | "Th" | "Fr" | "Sa";
+}

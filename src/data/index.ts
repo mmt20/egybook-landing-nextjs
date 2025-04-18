@@ -1,7 +1,7 @@
 import MouseCursuerICon from "@/components/ui/icons/MouseCursuerICon";
 import PiggyBankIcon from "@/components/ui/icons/PiggyBankIcon";
 import VRICon from "@/components/ui/icons/VRICon";
-import { IDestination, IFeature, IHotel, IPlace, ILocation } from "@/interfaces";
+import { IDestination, IFeature, IHotel, IPlace, ILocation, IDayNames, IMonthsNames } from "@/interfaces";
 
 export const hotelData: IHotel[] = [
   {
@@ -120,3 +120,20 @@ export const popularLocations: ILocation[] = [
   { name: "Alexandria", description: "City in Egypt" },
   { name: "Hurghada", description: "City in Egypt" },
 ];
+
+export const monthNames: IMonthsNames = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+
+export const dayNames: IDayNames = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"];

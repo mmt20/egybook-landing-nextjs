@@ -44,7 +44,7 @@ export default function Hero() {
         <Flex
           direction="column"
           justify="center"
-          align={{ base: "center", md: "flex-start" }}
+          align={{ base: "flex-start", md: "flex-start" }}
           height="100%"
           color="white"
           textAlign={{ base: "center", md: "left" }}
@@ -90,7 +90,7 @@ export default function Hero() {
             maxW="980px"
             bg="rgba(64, 64, 64, 0.5)"
             backdropFilter="blur(5px)"
-            borderRadius="full"
+            borderRadius={{ base: "4xl", md: "full" }}
             gap={{ base: 2, md: 0 }}
           >
             {/* Location Picker */}
@@ -121,6 +121,7 @@ export default function Hero() {
               position="relative"
               height="60px"
               width="100%"
+              cursor={"pointer"}
             >
               <Box
                 pointerEvents="none"
@@ -150,6 +151,7 @@ export default function Hero() {
               width="100%"
               borderBottom={{ base: "1px solid", md: "none" }}
               borderColor="whiteAlpha.300"
+              cursor={"pointer"}
             >
               <Box
                 pointerEvents="none"

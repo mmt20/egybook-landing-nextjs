@@ -1,115 +1,85 @@
 "use client";
 
 import { useState } from "react";
-import { Text, Flex, Grid, GridItem, IconButton, Box } from "@chakra-ui/react";
-import { Popover } from "@chakra-ui/react";
+import { Box, Text, IconButton, Flex, Popover, useBreakpointValue } from "@chakra-ui/react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import { generateCalendarDays } from "@/utils/functions";
 
-interface DatePickerProps {
-  onDateChange: (range: string) => void;
+import CalendarMonth from "./CalendarMonth";
+import { monthNames } from "@/data";
+
+interface DateRangePickerProps {
+  onDateChange: (rangeText: string) => void;
 }
 
-const DatePicker = ({ onDateChange }: DatePickerProps) => {
-  const [year, setYear] = useState(2025);
-  const [month, setMonth] = useState(2);
+const DatePicker = ({ onDateChange }: DateRangePickerProps) => {
+  const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
+  const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
 
-  const [startDate, setStartDate] = useState<number | null>(19); // Initialize to match Hero state
-  const [endDate, setEndDate] = useState<number | null>(27); // Initialize to match Hero state
+  const [range, setRange] = useState<{ start: Date | null; end: Date | null }>({
+    start: null,
+    end: null,
+  });
 
-  const monthNames = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
-  const days = generateCalendarDays(year, month);
-
-  const handleMonthNav = (dir: -1 | 1) => {
-    let newMonth = month + dir;
-    let newYear = year;
+  const handleMonthChange = (dir: -1 | 1) => {
+    let newMonth = currentMonth + dir;
+    let newYear = currentYear;
     if (newMonth < 0) {
       newMonth = 11;
       newYear--;
-    }
-    if (newMonth > 11) {
+    } else if (newMonth > 11) {
       newMonth = 0;
       newYear++;
     }
-    setMonth(newMonth);
-    setYear(newYear);
+    setCurrentMonth(newMonth);
+    setCurrentYear(newYear);
   };
 
-  const handleDayClick = (day: number) => {
-    if (!startDate || (startDate && endDate)) {
-      setStartDate(day);
-      setEndDate(null);
-    } else if (day < startDate) {
-      setStartDate(day);
+  const handleSelect = (day: number, month: number, year: number) => {
+    const selected = new Date(year, month, day);
+
+    if (!range.start || (range.start && range.end)) {
+      setRange({ start: selected, end: null });
+    } else if (selected < range.start) {
+      setRange({ start: selected, end: null });
     } else {
-      setEndDate(day);
-      // propagate
-      const start = new Date(year, month, startDate!);
-      const end = new Date(year, month, day);
-      onDateChange(`${start.getDate()} ${monthNames[month]} ${year} - ${end.getDate()} ${monthNames[month]} ${year}`);
+      setRange(prev => ({ ...prev, end: selected }));
+      onDateChange(
+        `${range.start?.getDate()} ${monthNames[range.start?.getMonth() ?? 0]} - ${selected.getDate()} ${
+          monthNames[selected.getMonth()]
+        }`
+      );
     }
   };
 
-  const isInRange = (d: number) => startDate != null && endDate != null && d >= startDate && d <= endDate;
+  const nextMonth = (currentMonth + 1) % 12;
+  const nextMonthYear = currentMonth === 11 ? currentYear + 1 : currentYear;
+
+  // Use breakpoint to determine layout direction
+  const direction = useBreakpointValue({ base: "column", md: "row" });
+  const popoverWidth = useBreakpointValue({ base: "90vw", sm: "450px", md: "620px" });
 
   return (
-    <Popover.Root positioning={{ placement: "bottom-start" }}>
+    <Popover.Root>
       <Popover.Trigger as={Box} height="100%" width="100%" />
 
-      <Popover.Content width="300px" boxShadow="xl">
-        <Popover.Arrow>
-          <Popover.ArrowTip />
-        </Popover.Arrow>
-
-        <Popover.Body>
-          <Flex justify="space-between" align="center" mb={2}>
-            <IconButton aria-label="Previous month" size="sm" onClick={() => handleMonthNav(-1)}>
+      <Popover.Content width={popoverWidth} bg="#FFFFFF11" borderRadius="2xl" backdropFilter="blur(14px)" mx={2}>
+        <Popover.Body p={{ base: 2, sm: 3, md: 4 }}>
+          <Flex justify="space-between" align="center" mb={4} px={{ base: 2, md: 4 }}>
+            <IconButton variant="ghost" size="sm" aria-label="prev" onClick={() => handleMonthChange(-1)}>
               <FaChevronLeft />
             </IconButton>
-            <Text fontWeight="bold">{`${monthNames[month]} ${year}`}</Text>
-            <IconButton aria-label="Next month" size="sm" onClick={() => handleMonthNav(1)}>
+            <Text fontWeight="bold" fontSize={{ base: "sm", md: "md" }} textAlign="center">
+              {monthNames[currentMonth]} - {monthNames[nextMonth]} {currentYear}
+            </Text>
+            <IconButton variant="ghost" size="sm" aria-label="next" onClick={() => handleMonthChange(1)}>
               <FaChevronRight />
             </IconButton>
           </Flex>
 
-          <Grid templateColumns="repeat(7, 1fr)" gap={1}>
-            {["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"].map(day => (
-              <GridItem key={day} textAlign="center">
-                <Text fontSize="xs" fontWeight="bold">
-                  {day}
-                </Text>
-              </GridItem>
-            ))}
-            {days.map((d, i) => (
-              <GridItem key={i} textAlign="center">
-                {d && (
-                  <Box
-                    onClick={() => d && handleDayClick(d)}
-                    cursor={d ? "pointer" : "default"}
-                    borderRadius="md"
-                    p={1}
-                    bg={d === startDate || d === endDate ? "blue.500" : isInRange(d!) ? "blue.100" : "transparent"}
-                    color={d === startDate || d === endDate ? "white" : "inherit"}
-                  >
-                    <Text>{d}</Text>
-                  </Box>
-                )}
-              </GridItem>
-            ))}
-          </Grid>
+          <Flex gap={{ base: 2, md: 4 }} flexDirection={direction} pb={4}>
+            <CalendarMonth year={currentYear} month={currentMonth} range={range} onSelect={handleSelect} />
+            <CalendarMonth year={nextMonthYear} month={nextMonth} range={range} onSelect={handleSelect} />
+          </Flex>
         </Popover.Body>
       </Popover.Content>
     </Popover.Root>
