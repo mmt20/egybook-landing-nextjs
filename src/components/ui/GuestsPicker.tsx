@@ -38,6 +38,10 @@ const GuestsPicker: React.FC<GuestsPickerProps> = ({ guests, onUpdateGuests }) =
                   size="sm"
                   onClick={() => updateGuestCount("adults", false)}
                   disabled={guests.adults <= 1}
+                  bg={"transparent"}
+                  border={"2px solid #FFFFFF4D"}
+                  _hover={{ bg: "whiteAlpha.300" }}
+                  _active={{ bg: "whiteAlpha.300" }}
                 >
                   <FaMinus fill="#D2AC71" />
                 </IconButton>
@@ -49,6 +53,10 @@ const GuestsPicker: React.FC<GuestsPickerProps> = ({ guests, onUpdateGuests }) =
                   aria-label="Increase adults"
                   size="sm"
                   onClick={() => updateGuestCount("adults", true)}
+                  bg={"transparent"}
+                  border={"2px solid #FFFFFF4D"}
+                  _hover={{ bg: "whiteAlpha.300" }}
+                  _active={{ bg: "whiteAlpha.300" }}
                 >
                   <FaPlus fill="#D2AC71" />
                 </IconButton>
@@ -65,6 +73,10 @@ const GuestsPicker: React.FC<GuestsPickerProps> = ({ guests, onUpdateGuests }) =
                   size="sm"
                   onClick={() => updateGuestCount("children", false)}
                   disabled={guests.children <= 0}
+                  bg={"transparent"}
+                  border={"2px solid #FFFFFF4D"}
+                  _hover={{ bg: "whiteAlpha.300" }}
+                  _active={{ bg: "whiteAlpha.300" }}
                 >
                   <FaMinus fill="#D2AC71" />
                 </IconButton>
@@ -76,6 +88,10 @@ const GuestsPicker: React.FC<GuestsPickerProps> = ({ guests, onUpdateGuests }) =
                   aria-label="Increase children"
                   size="sm"
                   onClick={() => updateGuestCount("children", true)}
+                  bg={"transparent"}
+                  border={"2px solid #FFFFFF4D"}
+                  _hover={{ bg: "whiteAlpha.300" }}
+                  _active={{ bg: "whiteAlpha.300" }}
                 >
                   <FaPlus fill="#D2AC71" />
                 </IconButton>
@@ -92,6 +108,10 @@ const GuestsPicker: React.FC<GuestsPickerProps> = ({ guests, onUpdateGuests }) =
                   size="sm"
                   onClick={() => updateGuestCount("rooms", false)}
                   disabled={guests.rooms <= 1}
+                  bg={"transparent"}
+                  border={"2px solid #FFFFFF4D"}
+                  _hover={{ bg: "whiteAlpha.300" }}
+                  _active={{ bg: "whiteAlpha.300" }}
                 >
                   <FaMinus fill="#D2AC71" />
                 </IconButton>
@@ -103,6 +123,10 @@ const GuestsPicker: React.FC<GuestsPickerProps> = ({ guests, onUpdateGuests }) =
                   aria-label="Increase rooms"
                   size="sm"
                   onClick={() => updateGuestCount("rooms", true)}
+                  bg={"transparent"}
+                  border={"2px solid #FFFFFF4D"}
+                  _hover={{ bg: "whiteAlpha.300" }}
+                  _active={{ bg: "whiteAlpha.300" }}
                 >
                   <FaPlus fill="#D2AC71" />
                 </IconButton>

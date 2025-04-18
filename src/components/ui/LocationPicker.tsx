@@ -6,41 +6,34 @@ import { Popover } from "@chakra-ui/react";
 import MapIcon from "./icons/MapIcon";
 
 const locations = [
-  { name: "Cairo", region: "Egypt Capital" },
-  { name: "Hurghada", region: "Red Sea" },
-  { name: "Sharm El-Sheikh", region: "South Sinai" },
+  { name: "Cairo", region: "City in Egypt" },
+  { name: "Hurghada", region: "City in Egypt" },
+  { name: "Sharm El-Sheikh", region: "City in Egypt" },
+  { name: "Luxor & Aswan", region: "City in Egypt" },
 ];
 
-interface LocationPickerProps {
+interface IProps {
   selectedLocation: string;
   onLocationSelect: (loc: { name: string; region: string }) => void;
 }
 
-const LocationPicker: React.FC<LocationPickerProps> = ({ selectedLocation, onLocationSelect }) => {
+const LocationPicker = ({ selectedLocation, onLocationSelect }: IProps) => {
   const [searchInput, setSearchInput] = useState(selectedLocation);
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
+
   const inputRef = useRef<HTMLInputElement | null>(null);
+  const filterValue = searchInput.split(",")[0].trim().toLowerCase();
 
-  const filteredLocations = locations.filter(loc => loc.name.toLowerCase().includes(searchInput.toLowerCase()));
-
+  const filteredLocations = locations.filter(loc => loc.name.toLowerCase().includes(filterValue.toLowerCase()));
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newSearchInput = e.target.value;
-    setSearchInput(newSearchInput);
-    setIsPopoverOpen(newSearchInput.length >= 3);
+    setSearchInput(e.target.value);
   };
 
   const handleLocationClick = (location: { name: string; region: string }) => {
     onLocationSelect(location);
     setSearchInput(`${location.name}, Egypt`);
     setIsPopoverOpen(false);
-    if (inputRef.current) {
-      inputRef.current.blur();
-    }
-  };
-
-  const handleInputFocus = () => {
-    // By leaving this function empty, the popover will not open on focus.
-    // It will only open when the user types 3 or more characters.
+    inputRef.current?.blur();
   };
 
   const handleOpenChange = (details: { open: boolean }) => {
@@ -51,51 +44,60 @@ const LocationPicker: React.FC<LocationPickerProps> = ({ selectedLocation, onLoc
     <Popover.Root open={isPopoverOpen} onOpenChange={handleOpenChange}>
       <Popover.Trigger asChild>
         <Box height="100%" width="100%">
-          <Flex as="div" height="100%" width="100%" align="center" px={4} cursor="pointer">
+          <Flex height="100%" width="100%" align="center" px={4} py={2} gap={2} cursor="pointer">
             <MapIcon />
             <Input
               ref={inputRef}
               value={searchInput}
               onChange={handleInputChange}
-              onFocus={handleInputFocus}
               placeholder="Where are you going?"
-              border="none"
               color="white"
-              _placeholder={{ color: "whiteAlpha.700" }}
-              _focus={{ outline: "none" }}
+              fontWeight="medium"
+              px={2}
             />
           </Flex>
         </Box>
       </Popover.Trigger>
+
       <Popover.Positioner>
-        <Popover.Content width="300px" boxShadow="xl">
-          <Popover.Arrow />
+        <Popover.Content bg="#FFFFFF40" backdropFilter="blur(12px)" borderRadius="2xl" width="250px">
           <Popover.Body>
-            <VStack align="stretch" p={0}>
-              {filteredLocations.length > 0 ? (
-                filteredLocations.map((location, index) => (
+            <VStack p={1} align="stretch">
+              {filteredLocations.map((location, index) => (
+                <Flex
+                  key={index}
+                  px={4}
+                  py={3}
+                  bg="transparent"
+                  borderRadius="2xl"
+                  align="center"
+                  gap={4}
+                  cursor="pointer"
+                  transition="background 0.2s"
+                  _hover={{ bg: "whiteAlpha.400" }}
+                  onClick={() => handleLocationClick(location)}
+                >
                   <Flex
-                    key={index}
-                    p={3}
-                    cursor="pointer"
-                    onClick={() => handleLocationClick(location)}
-                    _hover={{ bg: "gray.100" }}
-                    borderBottom={index < filteredLocations.length - 1 ? "1px solid" : "none"}
-                    borderColor="gray.200"
+                    w="40px"
+                    h="40px"
+                    bg="#F6EEE5"
+                    borderRadius="4xl"
+                    align="center"
+                    justify="center"
+                    flexShrink={0}
                   >
-                    <VStack align="start" p={1}>
-                      <Text fontWeight="bold">{location.name}</Text>
-                      <Text fontSize="sm" color="gray.600">
-                        {location.region}
-                      </Text>
-                    </VStack>
+                    <MapIcon />
                   </Flex>
-                ))
-              ) : (
-                <Text p={3} color="gray.500">
-                  No locations found
-                </Text>
-              )}
+                  <Box>
+                    <Text fontWeight="medium" color="white">
+                      {location.name}
+                    </Text>
+                    <Text fontSize="sm" color="whiteAlpha.800">
+                      {location.region}
+                    </Text>
+                  </Box>
+                </Flex>
+              ))}
             </VStack>
           </Popover.Body>
         </Popover.Content>
